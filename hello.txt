@@ -1,1 +1,35 @@
 HELLO!!!
+
+Introduction 
+The contact management system is designed to help users efficiently manage their contacts by providing functionalities for updating contacts, categorizing contacts, and a user-friendly interface for easy navigation. 
+
+Requirements 
+The following are major modules of the system.  
+
+1.	Contact Management 
+a.	The system includes a file that stores comprehensive information about contacts, including their names, phone numbers, email addresses, and additional custom fields for categorization (e.g., relationship type, organization, location). 
+b.	The system supports displaying existing contacts by retrieving the information from the file. 
+c.	Users can easily update the information for existing contacts, including adding or modifying custom fields such as notes, tags, or specific attributes related to the contact. 
+d.	The system allows users to assign custom tags or attributes to contacts for flexible categorization and filtering. 
+
+2.	Duplicate finding
+a.	Create a system for the users to easily find and solve duplicate names or phone numbers. 
+b.	In case of duplicates, the system provides the option for the user to either merge (in case of duplicate name with different phone numbers) or remove.
+
+3.	Categorization 
+a.	The system supports categorization of contacts based on user-defined attributes. 
+b.	Users can categorize contacts by relationship type (e.g., family, friends, colleagues), organization, or geographical location. 
+c.	The system provides functionalities to filter contacts based on their assigned categories or attributes.  
+
+4.	Fuzzy Searching 
+a.	Implement fuzzy searching using the regex library to allow users to search for contacts with approximate matches. The regex library is a powerful Python library designed for working with regular expressions. Regular expressions are sequences of characters that define a search pattern, allowing you to match and manipulate text strings with great flexibility. To explore further and learn how to use the regex library effectively, you can visit the official documentation at the following link: https://docs.python.org/3/library/re.html 
+b.	Users can search for contacts by name, phone number, email address, or any other custom fields. 
+
+Tasks 
+To develop the Contact Management System, complete the following tasks: 
+1.	Design the structure of the contact file and implement functions to read and write data from/to the file. 
+2.	Implement functions to display existing contacts, add new contacts, update contact information, and assign custom tags or attributes to contacts. 
+3.	Implement functions to categorize contacts based on user-defined attributes and provide functionalities to filter contacts based on their assigned categories or attributes. 
+4.	Implement fuzzy searching using the regex library to allow users to search for contacts with approximate matches. 
+5.	Test the system thoroughly to ensure proper functioning and handle edge cases. 
+6.	(Optional) Implement a graphical user interface (GUI) to enhance the program’s visual appeal. For GUI you can use PyQt or Tkinter or any other library of your choice. Additionally integrate a database like MySQL to store and retrieve data from a reliable and secure data source. This part is optional. 
