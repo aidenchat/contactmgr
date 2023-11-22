@@ -46,6 +46,29 @@ def update_contact(contacts):
 
     print("Contact not found.")
 
+def filter_contacts_by_tag(contacts, tag):
+    filtered_contacts = []
+    for contact in contacts["contacts"]:
+        if tag in contact["tags"]:
+            filtered_contacts.append(contact)
+    return filtered_contacts
+
+def search_contacts_by_name(contacts, name):
+    search_results = []
+    for contact in contacts["contacts"]:
+        if name.lower() in contact["name"].lower():
+            search_results.append(contact)
+    return search_results
+
+def print_dict(dict):
+    for contact in dict:
+        print("Name:", contact["name"])
+        print("Phone:", contact["phone"])
+        print("Email:", contact["email"])
+        print("Tags:", ', '.join(contact["tags"]))
+        print()
+
+
 if __name__ == "__main__":
     file_path = "contacts.json"
     contacts = load_contacts(file_path)
