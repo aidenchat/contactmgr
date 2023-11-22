@@ -80,8 +80,7 @@ if __name__ == "__main__":
         print("Email:", contact["email"])
         print("Tags:", ', '.join(contact["tags"]))
         print()
-
-    # Prompt for adding a new contact or updating an existing contact   
+  
     quit == False
     while quit == False:
         choice = input("Do you want to add a new contact (add) or update an existing contact (update)? ")
