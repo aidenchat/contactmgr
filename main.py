@@ -25,7 +25,26 @@ def add_contact(contacts):
     contacts["contacts"].append(new_contact)
     print("Contact added successfully.")
 
-# Main program
+def update_contact(contacts):
+    name = input("Enter the name of the contact to update: ")
+
+    for contact in contacts["contacts"]:
+        if contact["name"].lower() == name.lower():
+            phone = input("Enter the new phone number (leave blank to keep it unchanged): ")
+            email = input("Enter the new email address (leave blank to keep it unchanged): ")
+            tags = input("Enter the new tags (comma-separated, leave blank to keep them unchanged): ")
+
+            if phone:
+                contact["phone"] = phone
+            if email:
+                contact["email"] = email
+            if tags:
+                contact["tags"] = tags.split(',')
+
+            print("Contact updated successfully.")
+            return
+
+    print("Contact not found.")
 
 if __name__ == "__main__":
     file_path = "contacts.json"
@@ -39,6 +58,19 @@ if __name__ == "__main__":
         print("Tags:", ', '.join(contact["tags"]))
         print()
 
-    add_contact(contacts)
+    # Prompt for adding a new contact or updating an existing contact   
+    quit == False
+    while quit == False:
+        choice = input("Do you want to add a new contact (add) or update an existing contact (update)? ")
+
+        if choice.lower() == "add":
+            add_contact(contacts)
+        elif choice.lower() == "update":
+            update_contact(contacts)
+        elif choice.lower() == "quit":
+            quit = True
+        else:
+            print("Invalid choice.")
 
     save_contacts(file_path, contacts)
+        
