@@ -1,0 +1,28 @@
+{
+    "contacts": [
+      {
+        "name": "John Doe",
+        "phone": "+1 (123) 456-7890",
+        "email": "johndoe@example.com",
+        "tags": ["friend", "colleague"]
+      },
+      {
+        "name": "Jane Smith",
+        "phone": "+1 (987) 654-3210",
+        "email": "janesmith@example.com",
+        "tags": ["family"]
+      },
+      {
+        "name": "Alex Johnson",
+        "phone": "+1 (555) 123-4567",
+        "email": "alexjohnson@example.com",
+        "tags": ["friend"]
+      },
+      {
+        "name": "Emily Davis",
+        "phone": "+1 (222) 333-4444",
+        "email": "emilydavis@example.com",
+        "tags": ["colleague"]
+      }
+    ]
+  }
