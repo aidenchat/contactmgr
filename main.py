@@ -1,4 +1,5 @@
 import json
+import re
 
 def load_contacts(file_path):
     with open(file_path, 'r') as file:
@@ -81,7 +82,7 @@ if __name__ == "__main__":
         print("Tags:", ', '.join(contact["tags"]))
         print()
   
-    quit == False
+    quit = False
     while quit == False:
         choice = input("Do you want to add a new contact (add) or update an existing contact (update)? ")
 
