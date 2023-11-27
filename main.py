@@ -65,10 +65,10 @@ def fuzzy_search(contacts, search_term):
     search_results = []
 
     for contact in contacts["contacts"]:
-        name_match = re.search(fr"\b{re.escape(search_term)}\b", contact.get("name", ""), flags=re.IGNORECASE)
-        phone_match = re.search(fr"\b{re.escape(search_term)}\b", contact.get("phone", ""), flags=re.IGNORECASE)
-        email_match = re.search(fr"\b{re.escape(search_term)}\b", contact.get("email", ""), flags=re.IGNORECASE)
-        tags_match = any(re.search(fr"\b{re.escape(search_term)}\b", tag, flags=re.IGNORECASE) for tag in contact.get("tags", []))
+        name_match = re.match(fr".*{re.escape(search_term)}.*", contact.get("name", ""), flags=re.IGNORECASE)
+        phone_match = re.match(fr".*{re.escape(search_term)}.*", contact.get("phone", ""), flags=re.IGNORECASE)
+        email_match = re.match(fr".*{re.escape(search_term)}.*", contact.get("email", ""), flags=re.IGNORECASE)
+        tags_match = re.findall(fr"\b{re.escape(search_term)}\b", ', '.join(contact.get("tags", [])), flags=re.IGNORECASE)
 
         if name_match or phone_match or email_match or tags_match:
             search_results.append(contact)
