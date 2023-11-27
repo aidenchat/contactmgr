@@ -133,11 +133,7 @@ def filter_contacts_by_tag(contacts, tag):
 
     print("Filter results: \n")
     for contact in filtered_contacts:
-        print("Name:", contact["name"])
-        print("Phone:", contact["phone"])
-        print("Email:", contact["email"])
-        print("Tags:", ', '.join(contact["tags"]))
-        print()
+        print_single_contact(contact)
 
 def fuzzy_search(contacts, search_term):
     search_results = []
@@ -153,14 +149,16 @@ def fuzzy_search(contacts, search_term):
 
     return search_results
 
+def print_single_contact(contact):
+    print("Name:", contact["name"])
+    print("Phone:", contact["phone"])
+    print("Email:", contact["email"])
+    print("Tags:", ', '.join(contact["tags"]))
+    print()
+
 def print_contacts(contacts):
     for contact in contacts["contacts"]:
-        print("Name:", contact["name"])
-        print("Phone:", contact["phone"])
-        print("Email:", contact["email"])
-        print("Tags:", ', '.join(contact["tags"]))
-        print()
-
+        print_single_contact(contact)
 
 if __name__ == "__main__":
     file_path = "contacts.json"
@@ -185,20 +183,13 @@ if __name__ == "__main__":
             updated_contact = update_contact(contacts)
             if updated_contact:
                 print("Updated Contact:")
-                print("Name:", updated_contact["name"])
-                print("Phone:", updated_contact["phone"])
-                print("Email:", updated_contact["email"])
-                print("Tags:", ', '.join(updated_contact["tags"]))
+                print_single_contact(updated_contact)
         elif choice.lower() == "search":
             sterm = input("Input search term: ")
             search_results = fuzzy_search(contacts, sterm)
             print("Search results: \n")
             for result in search_results:
-                print("Name:", result["name"])
-                print("Phone:", result["phone"])
-                print("Email:", result["email"])
-                print("Tags:", ', '.join(result["tags"]))
-                print()
+                print_single_contact(result)
         elif choice.lower() == "quit":
             quit = True
         else:
