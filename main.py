@@ -91,7 +91,7 @@ if __name__ == "__main__":
   
     quit = False
     while quit == False:
-        choice = input("Do you want to add a new contact (add) or update an existing contact (update)? ")
+        choice = input("Do you want to add a new contact (add), update an existing contact (update) or quit the contact (quit)? ")
 
         if choice.lower() == "add":
             add_contact(contacts)
