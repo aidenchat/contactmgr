@@ -68,8 +68,8 @@ def search_contacts_by_name(contacts, name):
     #         search_results.append(contact)
     # return search_results
 
-def print_dict(dict):
-    for contact in dict:
+def print_contacts(contacts):
+    for contact in contacts["contacts"]:
         print("Name:", contact["name"])
         print("Phone:", contact["phone"])
         print("Email:", contact["email"])
@@ -80,17 +80,10 @@ def print_dict(dict):
 if __name__ == "__main__":
     file_path = "contacts.json"
     contacts = load_contacts(file_path)
-
-    print("Existing Contacts:")
-    for contact in contacts["contacts"]:
-        print("Name:", contact["name"])
-        print("Phone:", contact["phone"])
-        print("Email:", contact["email"])
-        print("Tags:", ', '.join(contact["tags"]))
-        print()
   
     quit = False
     while quit == False:
+        print_contacts(contacts)
         choice = input("Do you want to add a new contact (add), update an existing contact (update) or quit the contact (quit)? ")
 
         if choice.lower() == "add":
