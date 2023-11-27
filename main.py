@@ -57,7 +57,7 @@ def filter_contacts_by_tag(contacts, tag): #not yet work
             filtered_contacts.append(contact)
     return filtered_contacts
 
-def fuzzy_search(contacts, search_term):        #Not yet work :(
+def fuzzy_search(contacts, search_term):
     search_results = []
 
     for contact in contacts["contacts"]:
