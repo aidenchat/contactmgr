@@ -57,14 +57,28 @@ def filter_contacts_by_tag(contacts, tag):
             filtered_contacts.append(contact)
     return filtered_contacts
 
-def search_contacts_by_name(contacts, name):
+def fuzzy_search(contacts, search_term):        #Not yet work :(
     search_results = []
-    pattern = f".*{re.escape(name)}.*" # Create a pattern
+
     for contact in contacts["contacts"]:
-        contact_name = contact["name"]
-        if re.match(pattern, contact_name, flags=re.IGNORECASE):
+        name_match = re.search(fr"\b{re.escape(search_term)}\b", contact.get("name", ""), flags=re.IGNORECASE)
+        phone_match = re.search(fr"\b{re.escape(search_term)}\b", contact.get("phone", ""), flags=re.IGNORECASE)
+        email_match = re.search(fr"\b{re.escape(search_term)}\b", contact.get("email", ""), flags=re.IGNORECASE)
+        tags_match = any(re.search(fr"\b{re.escape(search_term)}\b", tag, flags=re.IGNORECASE) for tag in contact.get("tags", []))
+
+        if name_match or phone_match or email_match or tags_match:
             search_results.append(contact)
-        return search_results
+
+    return search_results
+
+# def search_contacts_by_name(contacts, name):
+#     search_results = []
+#     pattern = f".*{re.escape(name)}.*" # Create a pattern
+#     for contact in contacts["contacts"]:
+#         contact_name = contact["name"]
+#         if re.match(pattern, contact_name, flags=re.IGNORECASE):
+#             search_results.append(contact)
+#         return search_results
     # for contact in contacts["contacts"]:
     #     if name.lower() in contact["name"].lower():
     #         search_results.append(contact)
@@ -94,6 +108,9 @@ if __name__ == "__main__":
             add_contact(contacts)
         elif choice.lower() == "update":
             update_contact(contacts)
+        elif choice.lower() == "search":
+            sterm = input("Input search term: ")
+            fuzzy_search(contacts,sterm)
         elif choice.lower() == "quit":
             quit = True
         else:
