@@ -97,12 +97,11 @@
       ]
     },
     {
-      "name": "Jones Lopez",
-      "phone": "+852 6160 6161",
-      "email": "jl@testmail.com",
+      "name": "Ryan White",
+      "phone": "+1 (333) 888-7777",
+      "email": "ryan@example.com",
       "tags": [
-        "colleague",
-        " friend"
+        "friend"
       ]
     }
   ]

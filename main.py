@@ -50,7 +50,7 @@ if __name__ == "__main__":
     quit = False
     #print_contacts(contacts)
     while quit == False:
-        choice = input("Choose the mode you want (view by tags/add/update/search/quit): ")
+        choice = input("Choose the mode you want (view by tags/add/update/search/delete/quit): ")
 
         if choice.lower() == "view by tags":
             contacts = load_contacts(file_path)
@@ -60,19 +60,25 @@ if __name__ == "__main__":
             add_contact(contacts)
             save_contacts(file_path, contacts)
         elif choice.lower() == "update":
-            update_contact(contacts)
-            save_contacts(file_path, contacts)
             contacts = load_contacts(file_path)
             updated_contact = update_contact(contacts)
             if updated_contact:
                 print("Updated Contact:")
                 print_single_contact(updated_contact)
+            save_contacts(file_path, contacts)
         elif choice.lower() == "search":
             sterm = input("Input search term: ")
             search_results = fuzzy_search(contacts, sterm)
             print("Search results: \n")
             for result in search_results:
                 print_single_contact(result)
+        elif choice.lower() == "delete":
+            contacts = load_contacts(file_path)
+            deleted_contact = delete_contact(contacts)
+            if deleted_contact:
+                print("Deleted Contact:")
+                print_single_contact(deleted_contact)
+            save_contacts(file_path, contacts)
         elif choice.lower() == "quit":
             quit = True
         else:

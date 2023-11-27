@@ -87,3 +87,34 @@ def update_contact(contacts):
             
     print("Contact not found.")
     return None
+
+def delete_contact(contacts):
+    search_category = input("Enter the category to search in (name, phone, email, tags): ")
+    search_term = input("Enter the search term: ")
+
+    for contact in contacts["contacts"]:
+        if search_category == "name":
+            search_pattern = re.compile(search_term, re.IGNORECASE)
+            if search_pattern.search(contact["name"]):
+                contacts["contacts"].remove(contact)
+                print("Contact removed successfully.")
+
+        elif search_category == "phone":
+            search_pattern = re.compile(search_term, re.IGNORECASE)
+            if search_pattern.search(contact["phone"]):
+                contacts["contacts"].remove(contact)
+                print("Contact removed successfully.")
+
+        elif search_category == "email":
+            search_pattern = re.compile(search_term, re.IGNORECASE)
+            if search_pattern.search(contact["email"]):
+                contacts["contacts"].remove(contact)
+                print("Contact removed successfully.")
+
+        elif search_category == "tags":
+            search_pattern = re.compile(search_term, re.IGNORECASE)
+            if any(search_pattern.search(tag) for tag in contact["tags"]):
+                contacts["contacts"].remove(contact)
+                print("Contact removed successfully.")
+            
+    print("Contact not found.")
