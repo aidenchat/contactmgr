@@ -42,7 +42,8 @@ def update_contact(contacts):
             if email:
                 contact["email"] = email
             if tags:
-                contact["tags"] = tags.split(',')
+                new_tags = tags.split(',')
+                contact["tags"].extend(new_tags)
 
             print("Contact updated successfully.")
             return contact
@@ -85,9 +86,11 @@ if __name__ == "__main__":
     quit = False
     while quit == False:
         print_contacts(contacts)
-        choice = input("Do you want to add a new contact (add), update an existing contact (update) or quit the contact (quit)? ")
+        choice = input("Choose the mode you want (view by tags/add/update/quit): ")
 
-        if choice.lower() == "add":
+        if choice.lower() == "view by tags":
+            filter_contacts_by_tag(contacts, tag)
+        elif choice.lower() == "add":
             add_contact(contacts)
         elif choice.lower() == "update":
             update_contact(contacts)
