@@ -103,6 +103,7 @@ if __name__ == "__main__":
         choice = input("Choose the mode you want (view by tags/add/update/quit): ")
 
         if choice.lower() == "view by tags":
+            tag= input("Name of tags: ")
             filter_contacts_by_tag(contacts, tag)
         elif choice.lower() == "add":
             add_contact(contacts)
