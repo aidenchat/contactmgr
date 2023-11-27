@@ -34,8 +34,11 @@ def update_contact(contacts): #should can search by any category?
         name_pattern = re.compile(name, re.IGNORECASE)
 
         if name_pattern.search(contact["name"]) :
-            option= input("Merge(m) or remove (r)? ")
-            if option.lower()== "m":
+            option= input("Merge(m) or remove (r)? ") #both merge and r still sucks: can't merge phone no, can't remove
+            if option.lower()== "r":
+                    if contact["name"].lower() == name.lower():
+                        del contacts["contacts"]
+            elif option.lower()== "m":
                 phone = input("Enter the new phone number (leave blank to keep it unchanged): ")
                 email = input("Enter the new email address (leave blank to keep it unchanged): ")
                 tags = input("Enter the new tags (comma-separated, leave blank to keep them unchanged): ")
