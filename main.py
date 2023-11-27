@@ -27,29 +27,30 @@ def add_contact(contacts):
     contacts["contacts"].append(new_contact)
     print("Contact added successfully.")
 
-def update_contact(contacts):
+def update_contact(contacts): #should can search by any category?
     name = input("Enter the name of the contact to update: ")
-    #should can search by any category?
 
     for contact in contacts["contacts"]:
-        if contact["name"].lower() == name.lower(): #use re lib
-            phone = input("Enter the new phone number (leave blank to keep it unchanged): ")
-            email = input("Enter the new email address (leave blank to keep it unchanged): ")
-            tags = input("Enter the new tags (comma-separated, leave blank to keep them unchanged): ")
+        name_pattern = re.compile(name, re.IGNORECASE)
 
-            if phone:
-                contact["phone"] = phone
-            if email:
-                contact["email"] = email
-            if tags:
-                new_tags = tags.split(',')
-                contact["tags"].extend(new_tags)
+        if name_pattern.search(contact["name"]) :
+            option= input("Merge(m) or remove (r)? ")
+            if option.lower()== "m":
+                phone = input("Enter the new phone number (leave blank to keep it unchanged): ")
+                email = input("Enter the new email address (leave blank to keep it unchanged): ")
+                tags = input("Enter the new tags (comma-separated, leave blank to keep them unchanged): ")
 
-            print("Contact updated successfully.")
-            return contact
+                if phone:
+                    contact["phone"] = phone
+                if email:
+                    contact["email"] = email
+                if tags:
+                    new_tags = tags.split(',')
+                    contact["tags"].extend(new_tags)
 
-    print("Contact not found.")
-
+                print("Contact updated successfully.")
+                return contact
+                
 def filter_contacts_by_tag(contacts, tag): #not yet work
     filtered_contacts = []
     for contact in contacts["contacts"]:
