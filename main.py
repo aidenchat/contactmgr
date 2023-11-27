@@ -110,7 +110,6 @@ if __name__ == "__main__":
                 print("Email:", result["email"])
                 print("Tags:", ', '.join(result["tags"]))
                 print()
-
         elif choice.lower() == "quit":
             quit = True
         else:
