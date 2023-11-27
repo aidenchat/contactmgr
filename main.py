@@ -99,8 +99,8 @@ if __name__ == "__main__":
     contacts = load_contacts(file_path)
   
     quit = False
+    print_contacts(contacts)
     while quit == False:
-        print_contacts(contacts)
         choice = input("Choose the mode you want (view by tags/add/update/search/quit): ")
 
         if choice.lower() == "view by tags":
