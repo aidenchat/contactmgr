@@ -71,6 +71,20 @@ def filter_contacts_by_tag(contacts, tag): #not formatted yet
             #     print()
             print(contact)
 
+def fuzzy_search(contacts, search_term):
+    search_results = []
+
+    for contact in contacts["contacts"]:
+        name_match = re.match(fr".*{re.escape(search_term)}.*", contact.get("name", ""), flags=re.IGNORECASE)
+        phone_match = re.match(fr".*{re.escape(search_term)}.*", contact.get("phone", ""), flags=re.IGNORECASE)
+        email_match = re.match(fr".*{re.escape(search_term)}.*", contact.get("email", ""), flags=re.IGNORECASE)
+        tags_match = re.findall(fr"\b{re.escape(search_term)}\b", ', '.join(contact.get("tags", [])), flags=re.IGNORECASE)
+
+        if name_match or phone_match or email_match or tags_match:
+            search_results.append(contact)
+
+    return search_results
+
 def print_contacts(contacts):
     for contact in contacts["contacts"]:
         print("Name:", contact["name"])
