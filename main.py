@@ -165,9 +165,9 @@ def print_contacts(contacts):
 if __name__ == "__main__":
     file_path = "contacts.json"
     contacts = load_contacts(file_path)
-  
+
     quit = False
-    print_contacts(contacts)
+    #print_contacts(contacts)
     while quit == False:
         choice = input("Choose the mode you want (view by tags/add/update/search/quit): ")
 
@@ -205,4 +205,4 @@ if __name__ == "__main__":
             print("Invalid choice.")
 
     save_contacts(file_path, contacts)
-        
+
