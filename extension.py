@@ -116,5 +116,5 @@ def delete_contact(contacts):
             if any(search_pattern.search(tag) for tag in contact["tags"]):
                 contacts["contacts"].remove(contact)
                 print("Contact removed successfully.")
-            
-    print("Contact not found.")
+        else:
+            print("Invalid category or search term.")
