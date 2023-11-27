@@ -75,19 +75,6 @@ def fuzzy_search(contacts, search_term):
 
     return search_results
 
-# def search_contacts_by_name(contacts, name):
-#     search_results = []
-#     pattern = f".*{re.escape(name)}.*" # Create a pattern
-#     for contact in contacts["contacts"]:
-#         contact_name = contact["name"]
-#         if re.match(pattern, contact_name, flags=re.IGNORECASE):
-#             search_results.append(contact)
-#         return search_results
-    # for contact in contacts["contacts"]:
-    #     if name.lower() in contact["name"].lower():
-    #         search_results.append(contact)
-    # return search_results
-
 def print_contacts(contacts):
     for contact in contacts["contacts"]:
         print("Name:", contact["name"])
@@ -116,6 +103,13 @@ if __name__ == "__main__":
         elif choice.lower() == "search":
             sterm = input("Input search term: ")
             search_results = fuzzy_search(contacts, sterm)
+            print("Search results: \n")
+            for result in search_results:
+                print("Name:", result["name"])
+                print("Phone:", result["phone"])
+                print("Email:", result["email"])
+                print("Tags:", ', '.join(result["tags"]))
+                print()
             for result in search_results:
                 print(result)
         elif choice.lower() == "quit":
