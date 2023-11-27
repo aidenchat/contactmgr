@@ -28,6 +28,22 @@ def ask_tags(contact):
         new_tags = tags.split(',')
         contact["tags"].extend(new_tags)
 
+def add_contact(contacts):
+    name = input("Enter the name: ")
+    phone = input("Enter the phone number: ")
+    email = input("Enter the email address: ")
+    tags = input("Enter tags (comma-separated): ").split(',')
+
+    new_contact = {
+        "name": name,
+        "phone": phone,
+        "email": email,
+        "tags": tags
+    }
+
+    contacts["contacts"].append(new_contact)
+    print("Contact added successfully.")
+
 def update_contact(contacts):
     search_category = input("Enter the category to search in (name, phone, email, tags): ")
     search_term = input("Enter the search term: ")
