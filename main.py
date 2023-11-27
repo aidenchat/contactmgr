@@ -91,7 +91,7 @@ if __name__ == "__main__":
     quit = False
     while quit == False:
         print_contacts(contacts)
-        choice = input("Choose the mode you want (view by tags/add/update/quit): ")
+        choice = input("Choose the mode you want (view by tags/add/update/search/quit): ")
 
         if choice.lower() == "view by tags":
             tag= input("Name of tags: ")
