@@ -50,10 +50,10 @@ def update_contact(contacts):
 
     print("Contact not found.")
 
-def filter_contacts_by_tag(contacts, tag):
+def filter_contacts_by_tag(contacts, tag): #not yet work
     filtered_contacts = []
     for contact in contacts["contacts"]:
-        if tag in contact["tags"]:
+        if tag.lower() in contact["tags"]: 
             filtered_contacts.append(contact)
     return filtered_contacts
 
