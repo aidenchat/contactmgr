@@ -1,2 +1,2 @@
 # contactmgr Contact Manager
-## Group project
+Group project
