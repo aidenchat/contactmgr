@@ -111,7 +111,9 @@ if __name__ == "__main__":
             update_contact(contacts)
         elif choice.lower() == "search":
             sterm = input("Input search term: ")
-            fuzzy_search(contacts,sterm)
+            search_results = fuzzy_search(contacts, sterm)
+            for result in search_results:
+                print(result)
         elif choice.lower() == "quit":
             quit = True
         else:
