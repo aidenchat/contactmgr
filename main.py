@@ -110,8 +110,7 @@ if __name__ == "__main__":
                 print("Email:", result["email"])
                 print("Tags:", ', '.join(result["tags"]))
                 print()
-            for result in search_results:
-                print(result)
+
         elif choice.lower() == "quit":
             quit = True
         else:
