@@ -54,7 +54,7 @@ def update_contact(contacts): #should can search by any category?
                 print("Contact updated successfully.")
                 return contact
                 
-def filter_contacts_by_tag(contacts, tag): #not formatted yet
+def filter_contacts_by_tag(contacts, tag):
     filtered_contacts = []
 
     for contact in contacts["contacts"]:
@@ -63,13 +63,13 @@ def filter_contacts_by_tag(contacts, tag): #not formatted yet
         if tags_match:
             filtered_contacts.append(contact)
 
-            # for contact in filtered_contacts:
-            #     print("Name:", contact["name"])
-            #     print("Phone:", contact["phone"])
-            #     print("Email:", contact["email"])
-            #     print("Tags:", ', '.join(contact["tags"]))
-            #     print()
-            print(contact)
+    print("Filter results: \n")
+    for contact in filtered_contacts:
+        print("Name:", contact["name"])
+        print("Phone:", contact["phone"])
+        print("Email:", contact["email"])
+        print("Tags:", ', '.join(contact["tags"]))
+        print()
 
 def fuzzy_search(contacts, search_term):
     search_results = []
@@ -104,7 +104,8 @@ if __name__ == "__main__":
         choice = input("Choose the mode you want (view by tags/add/update/search/quit): ")
 
         if choice.lower() == "view by tags":
-            tag= input("Name of tags: ")
+            contacts = load_contacts(file_path)
+            tag = input("Input tag: ")
             filter_contacts_by_tag(contacts, tag)
         elif choice.lower() == "add":
             add_contact(contacts)
