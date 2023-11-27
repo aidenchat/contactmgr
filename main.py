@@ -1,6 +1,7 @@
 import json
 import re
 
+file_path = "contacts.json"
 def load_contacts(file_path):
     with open(file_path, 'r') as file:
         data = json.load(file)
@@ -56,10 +57,16 @@ def filter_contacts_by_tag(contacts, tag):
 
 def search_contacts_by_name(contacts, name):
     search_results = []
+    pattern = f".*{re.escape(name)}.*" # Create a pattern
     for contact in contacts["contacts"]:
-        if name.lower() in contact["name"].lower():
+        contact_name = contact["name"]
+        if re.match(pattern, contact_name, flags=re.IGNORECASE):
             search_results.append(contact)
-    return search_results
+        return search_results
+    # for contact in contacts["contacts"]:
+    #     if name.lower() in contact["name"].lower():
+    #         search_results.append(contact)
+    # return search_results
 
 def print_dict(dict):
     for contact in dict:
