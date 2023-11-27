@@ -29,9 +29,10 @@ def add_contact(contacts):
 
 def update_contact(contacts):
     name = input("Enter the name of the contact to update: ")
+    #should can search by any category?
 
     for contact in contacts["contacts"]:
-        if contact["name"].lower() == name.lower():
+        if contact["name"].lower() == name.lower(): #use re lib
             phone = input("Enter the new phone number (leave blank to keep it unchanged): ")
             email = input("Enter the new email address (leave blank to keep it unchanged): ")
             tags = input("Enter the new tags (comma-separated, leave blank to keep them unchanged): ")
@@ -44,7 +45,7 @@ def update_contact(contacts):
                 contact["tags"] = tags.split(',')
 
             print("Contact updated successfully.")
-            return
+            return contact
 
     print("Contact not found.")
 
